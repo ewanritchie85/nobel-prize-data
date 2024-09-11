@@ -1,6 +1,7 @@
 import pandas as pd
 from pprint import pprint
 
+# categories funcionality can be moved to a separate util function
 def clean_prizes_df(data:tuple)->tuple:
     # unpack 'data' tuple
     df, df_title = data[0], data[1]
@@ -23,8 +24,8 @@ def clean_prizes_df(data:tuple)->tuple:
     # creating csv of unique prize categories
     unique_categories = df['prize_category'].unique()
     cat_df = pd.DataFrame(unique_categories, columns=['prize_category'])
-    cat_df['category_index'] = pd.RangeIndex(start=1, stop=len(cat_df)+1)
-    cat_columns = ['category_index','prize_category']
+    cat_df['category_id'] = pd.RangeIndex(start=1, stop=len(cat_df)+1)
+    cat_columns = ['category_id','prize_category']
     cat_df = cat_df[cat_columns]
     categories_path = 'data/clean_data/categories.csv'
     cat_df.to_csv(categories_path, index=False)
@@ -72,6 +73,16 @@ def clean_laureates_df(data:tuple):
     # writing cleaned data to local csv file
     laureates_path = 'data/clean_data/laureates.csv'
     df.to_csv(laureates_path, index=False)
+    
+            # creating csv of unique countries and codes
+    # unique_countries = df['country_of_birth'].unique()
+    # country = pd.DataFrame(unique_countries, columns=['country'])
+    # country['country_id'] = pd.RangeIndex(start=1, stop=len(country)+1)
+    # country_columns = ['country_id','country', 'country_code']
+    # country = country[country_columns]
+    # countries_path = 'data/clean_data/countries.csv'
+    # country.to_csv(countries_path, index=False)
+
 
     return laureates_path
 
