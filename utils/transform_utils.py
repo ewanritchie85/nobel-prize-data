@@ -8,14 +8,14 @@ def clean_prizes_df(data:tuple)->tuple:
     columns_to_drop = ['overallMotivation', 'laureates']
     df.drop(columns=columns_to_drop, inplace=True, errors='ignore')
     # creates prize_index column starting from 1 for the first date
-    df['prize_index'] = pd.RangeIndex(start=len(df), stop=0, step=-1)
+    df['prize_id'] = pd.RangeIndex(start=len(df), stop=0, step=-1)
     # rename columns 
     df.rename(columns={
         'year': 'prize_year',
         'category': 'prize_category'
     }, inplace=True)
     # reorder columns
-    columns = ['prize_index', 'prize_year', 'prize_category']
+    columns = ['prize_id', 'prize_year', 'prize_category']
     df = df[columns]
     # write to local csv file
     prizes_path = 'data/clean_data/prizes.csv'
