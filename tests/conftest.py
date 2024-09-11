@@ -3,15 +3,15 @@ from utils.extract_utils import create_df_from_json
 
 @pytest.fixture
 def path_1():
-    return "data/prize.json"
+    return "data/raw_data/prizes.json"
 
 @pytest.fixture
 def path_2():
-    return "data/laureate.json"
+    return "data/raw_data/laureates.json"
 
 @pytest.fixture
 def path_3():
-    return "data/country.json"
+    return "data/raw_data/countries.json"
 
 @pytest.fixture
 def data_1(path_1):

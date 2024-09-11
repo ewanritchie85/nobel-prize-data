@@ -1,7 +1,7 @@
 import pytest
 import pandas as pd
 from utils.extract_utils import create_df_from_json
-from utils.transform_utils import get_df_details
+from utils.transform_utils import clean_prizes_df, clean_laureates_df
 from db.seed import seed_raw_db
 from pprint import pprint
 
@@ -10,37 +10,37 @@ pd.set_option('display.max_columns', None)
 
 class TestExtractUtils:
     def test_func_returns_correct_dtypes(TestExtractUtils, path_1, path_2, path_3):
-        data_1 = create_df_from_json(path_1)
-        pprint(data_1[1])
-        pprint(data_1[2])
-        pprint(data_1[0].head())
-        assert isinstance(data_1, tuple)
-        assert isinstance(data_1[0], pd.DataFrame)
-        assert isinstance(data_1[1], str)
-        assert isinstance(data_1[2], list)
+        data = create_df_from_json(path_1)
+        # pprint(data[1])
+        # pprint(data[0].head())
+        assert isinstance(data, tuple)
+        assert isinstance(data[0], pd.DataFrame)
+        assert isinstance(data[1], str)
         
         data_2 = create_df_from_json(path_2)
-        # pprint(data_2[1])
-        # pprint(data_2[2])
-        # pprint(data_2[0].head())
-        assert isinstance(data_2, tuple)
-        assert isinstance(data_2[0], pd.DataFrame)
-        assert isinstance(data_2[1], str)
-        assert isinstance(data_2[2], list)
+        # pprint(data[1])
+        # pprint(data[0].head())
+        assert isinstance(data, tuple)
+        assert isinstance(data[0], pd.DataFrame)
+        assert isinstance(data[1], str)
 
         data_3 = create_df_from_json(path_3)
-        # pprint(data_3[1])
-        # pprint(data_3[2])
-        # pprint(data_3[0].head())
-        assert isinstance(data_3, tuple)
-        assert isinstance(data_3[0], pd.DataFrame)
-        assert isinstance(data_3[1], str)
-        assert isinstance(data_3[2], list)
+        # pprint(data[1])
+        # pprint(data[0].head())
+        assert isinstance(data, tuple)
+        assert isinstance(data[0], pd.DataFrame)
+        assert isinstance(data[1], str)
         
 class TestTransformUtils:
 
-    def test_func_reads_df(TestTransformUtils, data_1, data_2, data_3):
-       pass
+    def test_clean_prizes_reads_df(TestTransformUtils, data_1):
+       data = clean_prizes_df(data_1)
+       assert isinstance(data, tuple)
+       
+       
+    def test_clean_laureates_reads_df(TestTransformUtils, data_2):
+       data = clean_laureates_df(data_2)
+       assert isinstance(data, str)
         
         
         
