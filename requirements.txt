@@ -1,0 +1,5 @@
+pandas
+sqlalchemy
+pytest
+prettyprint
+psycopg2
