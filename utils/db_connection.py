@@ -9,12 +9,8 @@ password = os.getenv('PG_PASSWORD')
 host = os.getenv('PG_HOST')
 port = os.getenv('PG_PORT')
 
-def connect_to_raw_db():
-    engine_string = f"postgresql+psycopg2://{user}:{password}@{host}:{port}/nobel_raw_data"
+def connect_to_db():
+    engine_string = f"postgresql+psycopg2://{user}:{password}@{host}:{port}/nobel_prize_data"
     engine = create_engine(engine_string)
     return engine
     
-def connect_to_clean_db():
-    engine_string = f"postgresql+psycopg2://{user}:{password}@{host}:{port}/nobel_clean_data"
-    engine = create_engine(engine_string)   
-    return engine
