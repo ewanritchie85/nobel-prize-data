@@ -9,8 +9,9 @@ ready to populate a locally hosted postgreSQL database for analysis
 
 
 To run:
-    create venv
-    export python path
-    install dependencies
+    make dev-env
+    make dev-setup
+    make run-checks
+    
     run psql setup_db to create raw and clean postgres databases
 

@@ -1,19 +1,27 @@
 import pytest
 from utils.extract_utils import create_df_from_json
 
+
 @pytest.fixture
-def path_1():
+def prizes_path():
     return "data/raw_data/prizes.json"
 
+
 @pytest.fixture
-def path_2():
+def laureates_path():
     return "data/raw_data/laureates.json"
 
-@pytest.fixture
-def data_1(path_1):
-    return create_df_from_json(path_1)
 
 @pytest.fixture
-def data_2(path_2):
-    return create_df_from_json(path_2)
+def bad_path():
+    return "data/raw_data/missing.json"
 
+
+@pytest.fixture
+def prizes_data(prizes_path):
+    return create_df_from_json(prizes_path)
+
+
+@pytest.fixture
+def laureates_data(laureates_path):
+    return create_df_from_json(laureates_path)

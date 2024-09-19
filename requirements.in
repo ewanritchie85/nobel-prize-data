@@ -1,0 +1,8 @@
+pandas
+sqlalchemy
+pytest
+pytest-cov
+prettyprint
+psycopg2
+python-dotenv
+pdocs
